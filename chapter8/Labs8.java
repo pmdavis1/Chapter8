@@ -13,7 +13,7 @@ public class Labs8
     
       // nums(100);
       //nums2(100);
-      //revString("waleed");
+      System.out.println(revString2("waleed"));
 //       int n = 73;
 //       int x = prime(n,2);
 //        if(x == 1)
@@ -34,7 +34,7 @@ public class Labs8
        else
        {
            System.out.println(n);
-           nums(n-1);	
+           nums(n-1);   
        }
    }
  
@@ -44,7 +44,7 @@ public class Labs8
         System.out.println("0");
         else
         {
-            nums(n-1);	
+            nums(n-1);  
             System.out.println(n);
         }
     }
@@ -58,6 +58,17 @@ public class Labs8
       }
     
     }
+   
+   public static String revString2(String b)
+   {
+       if (b.length() < 1)
+       {return "";}
+       else
+       {
+           return (b.charAt(b.length()-1)) + revString2(b.substring(0,b.length()-1));
+       }
+   }
+  
    
    static int prime(int y,int i)
     {
