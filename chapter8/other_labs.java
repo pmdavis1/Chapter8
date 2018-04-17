@@ -8,12 +8,16 @@
  */
 public class other_labs
 {
+    
+    public static int[] bills = {1,5,10,20,100};
+    public static int amount = 150;
+    
     public static void main(String[] args)
     {
      System.out.println(collect(1000));
      System.out.println(pallindrome2("racecar"));
      System.out.println(gcd(8,22));
-     System.out.println(money(15));
+     System.out.println(combo(150,0));
     }
     
     public static int collect(int monetaryGoal)
@@ -105,27 +109,27 @@ return gcd(n,m);
 else
 return gcd(n,m%n);
 }
-
-    public static int money(int value)
-    {
-        if (value > 100)
-        {
-            return (money(value/100) + money(value/20) + money(value/5) + money(value/1));
-        }
-         if (value > 20)
-        {
-            return money(value/20) + money(value/5) + money(value/1);
-        }
-         if (value > 5)
-        {
-            return money(value/5) + money(value/1);
-        }
-        else 
-        {
-            return 1;
-        }
-    }
-    
+// 
+//     public static int money(int value)
+//     {
+//         if (value > 100)
+//         {
+//             return (money(value/100) + money(value/20) + money(value/5) + money(value/1));
+//         }
+//          if (value > 20)
+//         {
+//             return money(value/20) + money(value/5) + money(value/1);
+//         }
+//          if (value > 5)
+//         {
+//             return money(value/5) + money(value/1);
+//         }
+//         else 
+//         {
+//             return 1;
+//         }
+//     }
+//     
     public static int money2(int value)
     {
         if (value/100 > 0)
@@ -146,4 +150,23 @@ return gcd(n,m%n);
         }
     }
 
+     public static int combo(int amount, int currentBill)
+    {
+        if( amount == 0)
+        {
+            return 1;
+        }
+        if( amount < 0)
+        {
+            return 0;
+        }
+        
+        int nCombos = 0;
+        for( int bill = currentBill; bill < bills.length; bill++)
+        {
+            nCombos += combo(amount - bills[bill],bill);
+        }     
+        
+        return nCombos;
+    }
 }
