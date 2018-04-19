@@ -35,7 +35,6 @@ public class recursiveTriangle18 extends JApplet
         page.setColor (Color.red);
         page.drawPolyline (xPos, yPos, xPos.length);
         
-
         Triangle(xPos,yPos,page);
 
    }//end of paint
@@ -46,27 +45,38 @@ public class recursiveTriangle18 extends JApplet
      
        double length = Math.sqrt((Math.pow((xPos[0]-xPos[1]),2) + (Math.pow((yPos[0]-yPos[1]),2))));
        
-      
+      // for loops make an array of midpoints
        int []xPos1 = new int[4];
            for (int i = 0; i < xPos.length-1; i++)
            {
             xPos1[i] = (xPos[i] + xPos[i+1])/2;
-            System.out.println("a");
            }
            xPos1[3] = xPos1[0];
+           
        int []yPos1 = new int[4];
            for (int i = 0; i < xPos.length-1; i++)
            {
             yPos1[i] = (yPos[i] + yPos[i+1])/2; 
-             System.out.println("b");
            }
            yPos1[3] = yPos1[0];
-           
+      
+           //arrays for 3 separate triangles on left, right, and top
+       int[] triangle1x = {xPos1[0],xPos[1],xPos1[1],xPos1[0]};
+       int[] triangle1y = {yPos1[0],yPos[1],yPos1[1],yPos1[0]};
+       
+       int[] triangle2x = {xPos1[1],xPos[2],xPos1[2],xPos1[1]};
+       int[] triangle2y = {yPos1[1],yPos[2],yPos1[2],yPos1[1]};
+       
+       int[] triangle3x = {xPos1[2],xPos[3],xPos1[3],xPos1[2]};
+       int[] triangle3y = {yPos1[2],yPos[3],yPos1[3],yPos1[2]};
+       
        if (length >= 10)
        {
-        Triangle(xPos1, yPos1, page);
-       }       
-           
+        Triangle(triangle1x,triangle1y, page);
+        Triangle(triangle2x,triangle2y, page);
+        Triangle(triangle3x,triangle3y, page);    
+       }      
+       
        page.drawPolyline (xPos1, yPos1, xPos1.length);
            
        }
