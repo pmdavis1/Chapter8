@@ -1,3 +1,5 @@
+//Peter Davis
+
 import javax.swing.JApplet;
 import java.awt.*;
 
@@ -80,28 +82,6 @@ public class recursiveTriangle18 extends JApplet
        page.drawPolyline (xPos1, yPos1, xPos1.length);
            
        }
-        // base case is the distance between the two lines, can be set to whatever
-        //if the segment/distance is 30 or so, good length to stop
-        //{
-            //find the mid points of each line segment
-
-
-            //make the x and y array (3 points + first point to finish triangle)
-
-
-            //draw the Triangle
-            //page.drawPolyline (xNew, yNew, xNew.length);
-
-            //create x,y Array using the midpoints you calculated
-            //example
-
-
-
-
-            // Recursive calls for each section of triangle
-
-
-
         //}
 
 
